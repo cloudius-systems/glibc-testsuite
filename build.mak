@@ -39,6 +39,7 @@ q-build-so = $(call quiet, $(build-so), CC $@)
 tests :=
 tests += io/tst-getcwd.so
 tests += malloc/tst-malloc.so
+tests += rt/tst-clock.so
 
 all: $(tests)
 
