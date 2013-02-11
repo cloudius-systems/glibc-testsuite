@@ -3,7 +3,7 @@ arch = x64
 INCLUDES = -I. -I$(src)
 CFLAGS = $(autodepend) -g -Wall -Wno-pointer-arith $(INCLUDES) -Werror $(cflags-$(mode)) \
 	-D_GNU_SOURCE -U_FORTIFY_SOURCE -fno-stack-protector -fPIC \
-	$(arch-cflags)
+	$(arch-cflags) 
 ASFLAGS = -g $(autodepend)
 
 cflags-debug =
@@ -36,10 +36,23 @@ q-build-so = $(call quiet, $(build-so), CC $@)
 	$(makedir)
 	$(q-build-so)
 
+nptl/tst-mutex1.o: CFLAGS += -Wno-nonnull
+
 tests :=
 tests += io/tst-getcwd.so
 tests += libio/test-fmemopen.so
 tests += malloc/tst-malloc.so
+tests += nptl/tst-mutex1.so \
+	 nptl/tst-mutex2.so \
+	 nptl/tst-mutex3.so \
+	 nptl/tst-mutex4.so \
+	 nptl/tst-mutex5.so \
+	 nptl/tst-mutex5a.so \
+	 nptl/tst-mutex6.so \
+	 nptl/tst-mutex7.so \
+	 nptl/tst-mutex7a.so \
+	 nptl/tst-mutex8.so \
+	 nptl/tst-mutex9.so
 tests += rt/tst-clock.so
 
 all: $(tests)
