@@ -1,0 +1,5 @@
+
+All tests are taken from git commit 2ccdea26f290f6990606f4a43de5272afa1a784d
+of the glibc repository.
+
+The build system was written by Cloudius systems.
